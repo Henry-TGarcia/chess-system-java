@@ -4,7 +4,7 @@ public class Tabuleiro {
 	//Atributos
 	private int rows;
 	private int colunms;
-	private Piece[][] pieces;
+	private Piece[][] pieces; //Matriz de peças
 	
 	//Construtores
 	public Tabuleiro(int rows, int colunms) {
@@ -37,6 +37,11 @@ public class Tabuleiro {
 	
 	public Piece piece(Position position) {
 		return pieces[position.getRow()][position.getColunm()];
+	}
+	
+	public void placePiece(Piece piece, Position position) {//colocar peças
+		pieces[position.getRow()][position.getColunm()] = piece;
+		piece.position = position;
 	}
 	
 }
