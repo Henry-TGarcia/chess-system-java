@@ -48,6 +48,20 @@ public class Tabuleiro {
 		piece.position = position;
 	}
 	
+	public Piece removePiece(Position position) {
+		if(!positionExists(position)) {
+			throw new BoardException("Position not on the board");
+		}
+		if(piece(position) == null) {
+			return null;
+		}
+		Piece auxiliar = piece(position);
+		auxiliar.position = null;
+		pieces[position.getRow()][position.getColunm()] = null;
+		return auxiliar;
+	}
+	
+	
 	private boolean positionExists(int row, int colunm) {
 		return row >= 0 && row < rows && colunm >= 0 && colunm < colunms;
 	}//|
