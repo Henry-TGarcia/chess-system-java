@@ -29,6 +29,12 @@ public class ChessMatch {
 		return matriz; //retorna a matriz de peças da minha partida de xadrez
 	}
 	
+	public boolean[][] possibleMoves(ChessPosition sourcePosition){
+		Position position = sourcePosition.toPosition();
+		validateSourcePosition(position);
+		return board.piece(position).possibleMoves();
+	}
+	
 	public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
 		Position source = sourcePosition.toPosition();
 		Position target =targetPosition.toPosition();
@@ -56,7 +62,7 @@ public class ChessMatch {
 	
 	private void validateTargetPosition(Position source, Position target) {
 		if(!board.piece(source).possibleMove(target)) {
-			throw new ChessException("The chosen piece can't move to target position");
+			throw new ChessException("The chosen piece can't move to target position"); 
 		}
 	}
 	
