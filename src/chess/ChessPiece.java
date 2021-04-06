@@ -5,6 +5,9 @@ import boardgame.Position;
 import boardgame.Tabuleiro;
 
 public abstract class ChessPiece extends Piece {
+	//Atributo
+	private int moveCount;
+	
 	//Associação
 	private Color color;
 
@@ -17,6 +20,18 @@ public abstract class ChessPiece extends Piece {
 	//Gets e Sets
 	public Color getColor() {
 		return color;
+	}
+	
+	public int getMoveCount() {
+		return moveCount;
+	}
+	
+	public void increaseMoveCount() {
+		moveCount++;
+	}
+	
+	public void decreaseMoveCount() {
+		moveCount--;
 	}
 	
 	public ChessPosition getChessPosition() {
